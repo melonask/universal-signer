@@ -9,7 +9,6 @@
         "@google-cloud/kms": "^5.2.1",
         "@ledgerhq/hw-app-eth": "^7.3.0",
         "@ledgerhq/hw-transport-node-hid": "^6.30.0",
-        "@noble/secp256k1": "^3.0.0",
         "@trezor/connect": "^9.7.1",
         "@turnkey/api-key-stamper": "^0.6.0",
         "@turnkey/http": "^3.16.1",
@@ -193,8 +192,6 @@
     "@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
 
     "@noble/hashes": ["@noble/hashes@1.8.0", "", {}, "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A=="],
-
-    "@noble/secp256k1": ["@noble/secp256k1@3.0.0", "", {}, "sha512-NJBaR352KyIvj3t6sgT/+7xrNyF9Xk9QlLSIqUGVUYlsnDTAUqY8LOmwpcgEx4AMJXRITQ5XEVHD+mMaPfr3mg=="],
 
     "@openzeppelin/contracts": ["@openzeppelin/contracts@5.4.0", "", {}, "sha512-eCYgWnLg6WO+X52I16TZt8uEjbtdkgLC0SUX/xnAksjjrQI4Xfn4iBRoI5j55dmlOhDv1Y7BoR3cU7e3WWhC6A=="],
 
