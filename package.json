@@ -1,0 +1,79 @@
+{
+  "name": "@universal-signer/core",
+  "version": "0.0.1",
+  "description": "Universal blockchain signer for Hardware (Ledger, Trezor), Cloud KMS (AWS, GCP), Turnkey, and Local environments using Viem v2.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "license": "MIT",
+  "author": "Universal Signer Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/universal-signer/core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/universal-signer/core/issues"
+  },
+  "homepage": "https://github.com/universal-signer/core#readme",
+  "keywords": [
+    "ethereum",
+    "viem",
+    "kms",
+    "aws-kms",
+    "gcp-kms",
+    "ledger",
+    "trezor",
+    "turnkey",
+    "hardware-wallet",
+    "signing",
+    "blockchain",
+    "web3",
+    "eip-712",
+    "ecdsa",
+    "secp256k1"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm --sourcemap=none && tsc --emitDeclarationOnly --outDir dist",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run build && bun run test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-kms": "^3.972.0",
+    "@google-cloud/kms": "^5.2.1",
+    "@ledgerhq/hw-app-eth": "^7.3.0",
+    "@ledgerhq/hw-transport-node-hid": "^6.30.0",
+    "@trezor/connect": "^9.7.1",
+    "@turnkey/api-key-stamper": "^0.6.0",
+    "@turnkey/http": "^3.16.1",
+    "@turnkey/viem": "^0.14.21",
+    "viem": "^2.44.4"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.0.9",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5",
+    "viem": "^2.44.0"
+  }
+}
