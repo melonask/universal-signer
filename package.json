@@ -11,12 +11,12 @@
   "author": "Universal Signer Contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/universal-signer/core.git"
+    "url": "https://github.com/melonask/universal-signer.git"
   },
   "bugs": {
-    "url": "https://github.com/universal-signer/core/issues"
+    "url": "https://github.com/melonask/universal-signer/issues"
   },
-  "homepage": "https://github.com/universal-signer/core#readme",
+  "homepage": "https://github.com/melonask/universal-signer#readme",
   "keywords": [
     "ethereum",
     "viem",
