@@ -1,6 +1,6 @@
 {
   "name": "@universal-signer/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Universal blockchain signer for Hardware (Ledger, Trezor), Cloud KMS (AWS, GCP), Turnkey, and Local environments using Viem v2.",
   "type": "module",
   "main": "./dist/index.js",
@@ -57,7 +57,7 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-kms": "^3.972.0",
+    "@aws-sdk/client-kms": "^3.975.0",
     "@google-cloud/kms": "^5.2.1",
     "@ledgerhq/hw-app-eth": "^7.3.0",
     "@ledgerhq/hw-transport-node-hid": "^6.30.0",
@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^25.0.9",
+    "@types/node": "^25.0.10",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {

@@ -54,7 +54,10 @@ yarn add @universal-signer/core viem
 ## Quick Start
 
 ```typescript
-import { createUniversalClient, createAwsAccount } from "@universal-signer/core";
+import {
+  createUniversalClient,
+  createAwsAccount,
+} from "@universal-signer/core";
 import { mainnet } from "viem/chains";
 import { http } from "viem";
 
@@ -112,7 +115,8 @@ import { createAwsAccount, type AwsKmsConfig } from "@universal-signer/core";
 
 const config: AwsKmsConfig = {
   // Key ID, ARN, or alias
-  keyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+  keyId:
+    "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
   // AWS region (default: "us-east-1")
   region: "us-east-1",
   // Optional: explicit credentials (defaults to AWS SDK credential chain)
@@ -128,11 +132,11 @@ console.log("Address:", account.address);
 
 #### Configuration
 
-| Property | Type | Required | Default | Description |
-|----------|------|----------|---------|-------------|
-| `keyId` | `string` | Yes | — | KMS key ID, ARN, or alias |
-| `region` | `string` | No | `"us-east-1"` | AWS region |
-| `credentials` | `object` | No | SDK default | AWS credentials |
+| Property      | Type     | Required | Default       | Description               |
+| ------------- | -------- | -------- | ------------- | ------------------------- |
+| `keyId`       | `string` | Yes      | —             | KMS key ID, ARN, or alias |
+| `region`      | `string` | No       | `"us-east-1"` | AWS region                |
+| `credentials` | `object` | No       | SDK default   | AWS credentials           |
 
 ---
 
@@ -167,10 +171,10 @@ console.log("Address:", account.address);
 
 #### Configuration
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | `string` | Yes | Full CryptoKeyVersion resource name |
-| `clientOptions` | `ClientOptions` | No | GCP client configuration (from `google-gax`) |
+| Property        | Type            | Required | Description                                  |
+| --------------- | --------------- | -------- | -------------------------------------------- |
+| `name`          | `string`        | Yes      | Full CryptoKeyVersion resource name          |
+| `clientOptions` | `ClientOptions` | No       | GCP client configuration (from `google-gax`) |
 
 ---
 
@@ -188,7 +192,11 @@ Uses `@ledgerhq/hw-app-eth` over USB HID for hardware wallet signing.
 #### Usage
 
 ```typescript
-import { createLedgerAccount, type LedgerConfig, type LedgerAccount } from "@universal-signer/core";
+import {
+  createLedgerAccount,
+  type LedgerConfig,
+  type LedgerAccount,
+} from "@universal-signer/core";
 
 const config: LedgerConfig = {
   // BIP-44 derivation path (default: "44'/60'/0'/0/0")
@@ -207,17 +215,17 @@ await account.close();
 
 #### Configuration
 
-| Property | Type | Required | Default | Description |
-|----------|------|----------|---------|-------------|
-| `derivationPath` | `string` | No | `"44'/60'/0'/0/0"` | BIP-44 derivation path |
-| `transport` | `Transport` | No | Auto-created | Custom HID transport instance |
+| Property         | Type        | Required | Default            | Description                   |
+| ---------------- | ----------- | -------- | ------------------ | ----------------------------- |
+| `derivationPath` | `string`    | No       | `"44'/60'/0'/0/0"` | BIP-44 derivation path        |
+| `transport`      | `Transport` | No       | Auto-created       | Custom HID transport instance |
 
 #### Extended Account
 
 `LedgerAccount` extends `LocalAccount` with:
 
-| Method | Description |
-|--------|-------------|
+| Method    | Description                             |
+| --------- | --------------------------------------- |
 | `close()` | Closes the USB HID transport connection |
 
 ---
@@ -252,12 +260,12 @@ console.log("Address:", account.address);
 
 #### Configuration
 
-| Property | Type | Required | Default | Description |
-|----------|------|----------|---------|-------------|
-| `email` | `string` | Yes | — | Contact email for manifest |
-| `appUrl` | `string` | Yes | — | Application URL for manifest |
-| `appName` | `string` | Yes | — | Application name for manifest |
-| `derivationPath` | `string` | No | `"m/44'/60'/0'/0/0"` | BIP-44 derivation path |
+| Property         | Type     | Required | Default              | Description                   |
+| ---------------- | -------- | -------- | -------------------- | ----------------------------- |
+| `email`          | `string` | Yes      | —                    | Contact email for manifest    |
+| `appUrl`         | `string` | Yes      | —                    | Application URL for manifest  |
+| `appName`        | `string` | Yes      | —                    | Application name for manifest |
+| `derivationPath` | `string` | No       | `"m/44'/60'/0'/0/0"` | BIP-44 derivation path        |
 
 ---
 
@@ -283,13 +291,13 @@ console.log("Address:", account.address);
 
 #### Configuration
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `baseUrl` | `string` | Yes | Turnkey API base URL |
-| `apiPublicKey` | `string` | Yes | Turnkey API public key |
-| `apiPrivateKey` | `string` | Yes | Turnkey API private key |
-| `organizationId` | `string` | Yes | Turnkey organization ID |
-| `privateKeyId` | `string` | Yes | Private key or wallet ID in Turnkey |
+| Property         | Type     | Required | Description                         |
+| ---------------- | -------- | -------- | ----------------------------------- |
+| `baseUrl`        | `string` | Yes      | Turnkey API base URL                |
+| `apiPublicKey`   | `string` | Yes      | Turnkey API public key              |
+| `apiPrivateKey`  | `string` | Yes      | Turnkey API private key             |
+| `organizationId` | `string` | Yes      | Turnkey organization ID             |
+| `privateKeyId`   | `string` | Yes      | Private key or wallet ID in Turnkey |
 
 ---
 
@@ -306,7 +314,8 @@ import { createLocalAccount } from "@universal-signer/core";
 
 // From private key
 const account = createLocalAccount({
-  privateKey: "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+  privateKey:
+    "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
 });
 
 // Or from mnemonic
@@ -319,10 +328,10 @@ console.log("Address:", account.address);
 
 #### Configuration
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `privateKey` | `Hex` | One of | 32-byte private key with 0x prefix |
-| `mnemonic` | `string` | One of | BIP-39 mnemonic phrase |
+| Property     | Type     | Required | Description                        |
+| ------------ | -------- | -------- | ---------------------------------- |
+| `privateKey` | `Hex`    | One of   | 32-byte private key with 0x prefix |
+| `mnemonic`   | `string` | One of   | BIP-39 mnemonic phrase             |
 
 ---
 
@@ -357,9 +366,9 @@ Helper function to create a Viem `WalletClient` from any account.
 ```typescript
 function createUniversalClient(
   account: Account,
-  chain?: Chain,      // Default: mainnet
-  transport?: Transport // Default: http()
-): WalletClient
+  chain?: Chain, // Default: mainnet
+  transport?: Transport, // Default: http()
+): WalletClient;
 ```
 
 ### `normalizeKmsSignature`
@@ -370,8 +379,8 @@ Low-level utility for converting KMS DER signatures to Ethereum format.
 function normalizeKmsSignature(
   derSignature: Uint8Array | Buffer,
   digest: Hash,
-  expectedAddress: string
-): Promise<{ r: Hex; s: Hex; v: bigint }>
+  expectedAddress: string,
+): Promise<{ r: Hex; s: Hex; v: bigint }>;
 ```
 
 ---
@@ -389,17 +398,18 @@ Cloud KMS providers return ECDSA signatures in ASN.1 DER format. Ethereum requir
 ### Supported Operations
 
 | Provider | `signTransaction` | `signMessage` | `signTypedData` |
-|----------|:-----------------:|:-------------:|:---------------:|
-| AWS KMS | Yes | Yes | Yes |
-| GCP KMS | Yes | Yes | Yes |
-| Ledger | Yes | Yes | Yes |
-| Trezor | Yes | Yes | Yes |
-| Turnkey | Yes | Yes | Yes |
-| Local | Yes | Yes | Yes |
+| -------- | :---------------: | :-----------: | :-------------: |
+| AWS KMS  |        Yes        |      Yes      |       Yes       |
+| GCP KMS  |        Yes        |      Yes      |       Yes       |
+| Ledger   |        Yes        |      Yes      |       Yes       |
+| Trezor   |        Yes        |      Yes      |       Yes       |
+| Turnkey  |        Yes        |      Yes      |       Yes       |
+| Local    |        Yes        |      Yes      |       Yes       |
 
 ### Transaction Types
 
 All providers support:
+
 - Legacy transactions
 - EIP-2930 (Type 1)
 - EIP-1559 (Type 2)
@@ -412,6 +422,7 @@ All providers support:
 ### "Invalid DER: Unexpected end of data"
 
 The KMS returned a malformed signature. This can happen due to:
+
 - Network issues truncating the response
 - Incorrect key configuration
 
@@ -420,6 +431,7 @@ The KMS returned a malformed signature. This can happen due to:
 ### "AWS KMS: Unable to retrieve Public Key"
 
 **Causes**:
+
 - Incorrect key ID or ARN
 - Missing IAM permissions
 - Key is disabled or pending deletion
@@ -429,6 +441,7 @@ The KMS returned a malformed signature. This can happen due to:
 ### "GCP KMS: Public Key not found"
 
 **Causes**:
+
 - Incorrect resource name format
 - Missing IAM permissions
 - Key version is disabled
@@ -438,11 +451,13 @@ The KMS returned a malformed signature. This can happen due to:
 ### Ledger Connection Issues
 
 **Causes**:
+
 - Another application has the device open (Ledger Live, browser wallet)
 - Ethereum app not open on device
 - USB permissions (Linux)
 
 **Solutions**:
+
 1. Close Ledger Live and any browser wallets
 2. Open the Ethereum app on your Ledger
 3. On Linux, add udev rules:
@@ -468,4 +483,3 @@ Trezor requires an explicit `chainId` for transaction signing.
 ## License
 
 MIT
-
