@@ -1,6 +1,6 @@
 {
   "name": "@universal-signer/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Universal blockchain signer for Hardware (Ledger, Trezor), Cloud KMS (AWS, GCP), Turnkey, and Local environments using Viem v2.",
   "type": "module",
   "main": "./dist/index.js",
@@ -8,7 +8,7 @@
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "license": "MIT",
-  "author": "Universal Signer Contributors",
+  "author": "Melon Ask",
   "repository": {
     "type": "git",
     "url": "https://github.com/melonask/universal-signer.git"
@@ -45,7 +45,7 @@
     }
   },
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm --sourcemap=none && tsc --emitDeclarationOnly --outDir dist",
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm --sourcemap=none --external viem --external '@solana/*' --external '@solana-program/*' && tsc --emitDeclarationOnly --outDir dist",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "bun run build && bun run test"
