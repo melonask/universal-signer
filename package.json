@@ -1,6 +1,6 @@
 {
   "name": "@universal-signer/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Universal blockchain signer for Hardware (Ledger, Trezor), Cloud KMS (AWS, GCP), Turnkey, and Local environments using Viem v2.",
   "type": "module",
   "main": "./dist/index.js",
@@ -45,7 +45,7 @@
     }
   },
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm --sourcemap=none --external viem --external '@solana/*' --external '@solana-program/*' && tsc --emitDeclarationOnly --outDir dist",
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm --sourcemap=none --packages=external && tsc --emitDeclarationOnly --outDir dist",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "bun run build && bun run test"
@@ -56,7 +56,7 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "dependencies": {
+  "devDependencies": {
     "@aws-sdk/client-kms": "^3.975.0",
     "@google-cloud/kms": "^5.2.1",
     "@ledgerhq/hw-app-eth": "^7.3.0",
@@ -65,15 +65,47 @@
     "@turnkey/api-key-stamper": "^0.6.0",
     "@turnkey/http": "^3.16.1",
     "@turnkey/viem": "^0.14.21",
-    "viem": "^2.44.4"
-  },
-  "devDependencies": {
     "@types/bun": "latest",
     "@types/node": "^25.0.10",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "viem": "^2.44.4"
   },
   "peerDependencies": {
+    "@aws-sdk/client-kms": "^3.975.0",
+    "@google-cloud/kms": "^5.2.1",
+    "@ledgerhq/hw-app-eth": "^7.3.0",
+    "@ledgerhq/hw-transport-node-hid": "^6.30.0",
+    "@trezor/connect": "^9.7.1",
+    "@turnkey/api-key-stamper": "^0.6.0",
+    "@turnkey/http": "^3.16.1",
+    "@turnkey/viem": "^0.14.21",
     "typescript": "^5",
     "viem": "^2.44.0"
+  },
+  "peerDependenciesMeta": {
+    "@aws-sdk/client-kms": {
+      "optional": true
+    },
+    "@google-cloud/kms": {
+      "optional": true
+    },
+    "@ledgerhq/hw-app-eth": {
+      "optional": true
+    },
+    "@ledgerhq/hw-transport-node-hid": {
+      "optional": true
+    },
+    "@trezor/connect": {
+      "optional": true
+    },
+    "@turnkey/api-key-stamper": {
+      "optional": true
+    },
+    "@turnkey/http": {
+      "optional": true
+    },
+    "@turnkey/viem": {
+      "optional": true
+    }
   }
 }

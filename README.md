@@ -38,18 +38,42 @@ Write your blockchain signing logic once. Switch providers through configuration
 ## Installation
 
 ```bash
-# Bun (recommended)
-bun add @universal-signer/core viem
-
-# npm
 npm install @universal-signer/core viem
-
-# pnpm
-pnpm add @universal-signer/core viem
-
-# yarn
-yarn add @universal-signer/core viem
 ```
+
+Then install only the provider(s) you need:
+
+| Provider    | Dependencies                                                       |
+| ----------- | ------------------------------------------------------------------ |
+| **AWS KMS** | `npm install @aws-sdk/client-kms`                                  |
+| **GCP KMS** | `npm install @google-cloud/kms`                                    |
+| **Ledger**  | `npm install @ledgerhq/hw-app-eth @ledgerhq/hw-transport-node-hid` |
+| **Trezor**  | `npm install @trezor/connect`                                      |
+| **Turnkey** | `npm install @turnkey/viem @turnkey/http @turnkey/api-key-stamper` |
+| **Local**   | No additional dependencies                                         |
+
+<details>
+<summary>Example: AWS KMS setup</summary>
+
+```bash
+npm install @universal-signer/core viem @aws-sdk/client-kms
+```
+
+</details>
+
+<details>
+<summary>Example: Install all providers</summary>
+
+```bash
+npm install @universal-signer/core viem \
+  @aws-sdk/client-kms \
+  @google-cloud/kms \
+  @ledgerhq/hw-app-eth @ledgerhq/hw-transport-node-hid \
+  @trezor/connect \
+  @turnkey/viem @turnkey/http @turnkey/api-key-stamper
+```
+
+</details>
 
 ## Quick Start
 
@@ -102,6 +126,10 @@ const typedSignature = await account.signTypedData({
 
 Uses `@aws-sdk/client-kms` for signing with AWS Key Management Service.
 
+```bash
+npm install @aws-sdk/client-kms
+```
+
 #### Prerequisites
 
 - **Key Spec**: `ECC_SECG_P256K1`
@@ -144,6 +172,10 @@ console.log("Address:", account.address);
 
 Uses `@google-cloud/kms` for signing with Google Cloud Key Management Service.
 
+```bash
+npm install @google-cloud/kms
+```
+
 #### Prerequisites
 
 - **Algorithm**: `EC_SIGN_SECP256K1_SHA256`
@@ -181,6 +213,10 @@ console.log("Address:", account.address);
 ### Ledger
 
 Uses `@ledgerhq/hw-app-eth` over USB HID for hardware wallet signing.
+
+```bash
+npm install @ledgerhq/hw-app-eth @ledgerhq/hw-transport-node-hid
+```
 
 #### Prerequisites
 
@@ -234,6 +270,10 @@ await account.close();
 
 Uses `@trezor/connect` for hardware wallet signing via Trezor Connect.
 
+```bash
+npm install @trezor/connect
+```
+
 #### Prerequisites
 
 - Trezor device connected
@@ -272,6 +312,10 @@ console.log("Address:", account.address);
 ### Turnkey
 
 Uses `@turnkey/viem` for signing with Turnkey's key management infrastructure.
+
+```bash
+npm install @turnkey/viem @turnkey/http @turnkey/api-key-stamper
+```
 
 #### Usage
 
